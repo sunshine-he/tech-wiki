@@ -49,7 +49,7 @@ theme:
     - blog
   features:
     - navigation.tabs
-    - navigation.tabs.sticky
+    # - navigation.tabs.sticky
     - navigation.top
     - navigation.footer
     - navigation.sections
@@ -78,7 +78,7 @@ nav:
   - Home: index.md
   - QuickStart: quick_start.md
   - Development: 
-    - Installation: software/console_install_effect.md
+    - Installation: software/python.md
   - Blog:
      - blog/index.md
      - blog/authors.md
