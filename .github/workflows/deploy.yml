@@ -3,7 +3,7 @@ name: deploy wiki docs to tencent server
 on:
   push:
     branches:
-      - main
+      - gh-pages
       
 jobs:
   build:
@@ -27,14 +27,10 @@ jobs:
       - name: Upload to GitHub Pages
         uses: actions/upload-pages-artifact@v2
         with:
-          path: site
+          path: ./site/
       - name: Deploy to GitHub Pages
         uses: actions/deploy-pages@v2
-      - name: Save build cache
-        uses: actions/cache/save@v3
-        with:
-          key: tech-wiki-${{ hashfiles('.cache/**') }}
-          path: .cache    
+         
       
       
           
