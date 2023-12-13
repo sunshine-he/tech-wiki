@@ -3,7 +3,7 @@ name: deploy wiki docs to GitHub Pages
 on:
   push:
     branches:
-      - gh-pages
+      - main
   pull_request:
     branches: ["main"]
   workflow_dispatch:
