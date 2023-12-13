@@ -1,4 +1,4 @@
-site_name: technology document wiki and blog
+site_name: tech wiki
 site_author: MarkLong
 site_description: technology document wiki and blog
 site_url: ''
@@ -77,9 +77,8 @@ nav:
   - Home: index.md
   - QuickStart: quick_start.md
   - Development: 
-    - actuators: software/pnd_actuator_studio.md
-    - python demo: software/python_demo.md
-
+    - Installation: software/console_install_effect.md
+    
 
 
 # 扩展

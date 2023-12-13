@@ -1,15 +1,5 @@
 # Get Started
 
-如果您是PNDrive系列执行器的新手，以下说明旨在帮助您快速入门和运行。
-
-
-
-## 将执行器连接到网络
-
-```bash
-python3 demo.py
-```
-
 ## 代码高亮
 
 ```python

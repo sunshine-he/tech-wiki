@@ -67,6 +67,6 @@ Hello Camila
 
 </div>
 
-**Note**: auto-completion works when you create a Python package and run it with `--install-completion` or when you use <a href="https://typer.tiangolo.com/typer-cli/" class="internal-link" target="_blank">Typer CLI</a>.
+**Note**: auto-completion works when you create a Python package and run it with `--install-completion` 
 
 
