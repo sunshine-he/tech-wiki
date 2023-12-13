@@ -4,6 +4,14 @@ on:
   push:
     branches:
       - gh-pages
+  pull_request:
+    branches: ["main"]
+  workflow_dispatch:
+    
+permissions:
+  contents: write
+  pages: write
+  id-token: write
       
 jobs:
   build:
@@ -28,10 +36,16 @@ jobs:
         uses: actions/upload-pages-artifact@v2
         with:
           path: site
-      - name: Deploy to GitHub Pages
-        uses: actions/deploy-pages@v3
-        with: 
-          path: site
+      # - name: Deploy to GitHub Pages
+      #   uses: actions/deploy-pages@v3
+      #   with: 
+      #     token: ${{ secrets.GITHUB_TOKEN }}
+      - name: Deploy to GitHub pages
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./site
+          force_orphan: true
           
          
       
