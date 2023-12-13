@@ -16,36 +16,40 @@ permissions:
 jobs:
   build:
     runs-on: ubuntu-latest
-    steps:
-      - name: checkout_actions        
-        uses: actions/checkout@v4        
+    steps:      
+      - uses: actions/checkout@v4        
       - name: setup-python
         uses: actions/setup-python@v4
         with:
-          python-version: "3.11"
+          python-version: "3.x"
+      - run: echo "cache_id=$(date --utc '+%V')" >> $GITHUB_ENV
+      - uses: actions/cache@v3
+        with:
+          key: mkdocs-material-${{ env.cache_id }}
+          path: .cache
+          restore-keys: |
+            mkdocs-material-
       - name: setup mkdocs-material
         run: pip install mkdocs-material
-      - name: build-docs        
-        run: python -m mkdocs build
-      - name: Adjust permissions
-        run: |
-          chmod -c -R +rX site/ | while read line; do
-            echo "::warning title=Invalid file permissions automatically fixed::$line"
-          done
-      - name: Upload to GitHub Pages
-        uses: actions/upload-pages-artifact@v2
-        with:
-          path: site
-      # - name: Deploy to GitHub Pages
-      #   uses: actions/deploy-pages@v3
-      #   with: 
-      #     token: ${{ secrets.GITHUB_TOKEN }}
-      - name: Deploy to GitHub pages
-        uses: peaceiris/actions-gh-pages@v3
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./site
-          force_orphan: true
+      - run: mkdocs gh-deploy --forece #使用mkdocs的插件发布到github Pages  
+      #使用编译生成包再用第三方actions发布github Pages
+      # - name: build-docs        
+      #   run: python -m mkdocs build
+      # - name: Adjust permissions
+      #   run: |
+      #     chmod -c -R +rX site/ | while read line; do
+      #       echo "::warning title=Invalid file permissions automatically fixed::$line"
+      #     done
+      # - name: Upload to GitHub Pages
+      #   uses: actions/upload-pages-artifact@v2
+      #   with:
+      #     path: site      
+      # - name: Deploy to GitHub pages
+      #   uses: peaceiris/actions-gh-pages@v3
+      #   with:
+      #     github_token: ${{ secrets.GITHUB_TOKEN }}
+      #     publish_dir: ./site
+      #     force_orphan: true
           
          
       
