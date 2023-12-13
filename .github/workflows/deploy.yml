@@ -31,7 +31,8 @@ jobs:
             mkdocs-material-
       - name: setup mkdocs-material
         run: pip install mkdocs-material
-      - run: mkdocs gh-deploy --forece #使用mkdocs的插件发布到github Pages  
+      #使用mkdocs的插件发布到github Pages 
+      - run: mkdocs gh-deploy --force  
       #使用编译生成包再用第三方actions发布github Pages
       # - name: build-docs        
       #   run: python -m mkdocs build
