@@ -10,10 +10,6 @@
     margin: 0
   }
 
-  .md-content {
-    display: none
-  }
-
   @media screen and (min-width:60em) {
     .md-sidebar--secondary {
       display: none
@@ -25,7 +21,28 @@
       display: none
     }
   }
+  .contact-us{
+    position:absolute;
+    top:48%;
+    left: 35%; 
+    display:none;  
+  }
+  .md-button:hover .contact-us{
+    display: block;
+  }  
 </style>
+
+<script>
+  function contact(){
+    const contact = document.querySelector(".contact-us");       
+    if(contact.style.display==""||contact.style.display=="none"){
+      contact.style.display="block";
+    }else{
+      contact.style.display="none";      
+    }
+  }
+</script>
+
 <section class="mdx-container">
   <div class="md-grid md-typeset">
     <div class="mdx-hero">
@@ -34,22 +51,26 @@
       </div>
       <div class="mdx-hero__content">
         <h1>一个非常漂亮好用的写技术文档和知识博客的项目</h1>
-        <p>你也想拥有这样的网站吗？快来告诉我们吧！</p>
+        <p>仅需用markdown写文档，支持搜索，定制化，响应式适应所有设备。你也想拥有这样的网站吗？快来告诉我们吧！</p>
         <a href="{{ page.next_page.url | url }}" title="{{ page.next_page.title | e }}"
           class="md-button md-button--primary">
           Quick start
         </a>
-        <!-- <a href="#everything-you-would-expect" title="everything-you-would-expect" class="md-button">
-          Learn more
-        </a> -->
-      </div>
+        <a href="javascript:contact()"   class="md-button" id="md-button-contact">
+          Contact us
+          <div class="contact-us">
+            <img src="img/contact.jpg" alt="" width="120" height="120" draggable="false" />
+          </div>
+        </a>                 
+      </div>            
     </div>
-  </div>
-
+  </div>  
 </section>
 {% endblock %}
 {% block content %}
 
-<h1>content</h1>
 {% endblock %}
-{% block footer %}{% endblock %}
+{% block footer %}
+
+{% endblock %}
+

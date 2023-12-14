@@ -1,4 +1,4 @@
-site_name: tech wiki
+site_name: TechWiki
 site_author: MarkLong
 site_description: technology document wiki and blog
 site_url: ''
@@ -28,6 +28,7 @@ theme:
       bug: octicons/bug-16
       example: octicons/beaker-16
       quote: octicons/quote-16
+    annotation: material/arrow-right-circle         
   palette:     
     - media: "(prefers-color-scheme: light)"  
       scheme: default
@@ -46,7 +47,17 @@ theme:
   plugins: 
     - search
     - social
-    - blog
+    - tags
+    - blog:
+        blog_dir: blog
+        post_dir: "{blog}/posts"
+        blog_toc: false
+        post_date_format: full
+        post_url_format: "{categories}/{slug}"
+        post_url_max_categories: 2
+        archive: true
+        archive_date_format: yyyy
+    - glightbox
   features:
     - navigation.tabs
     # - navigation.tabs.sticky
@@ -55,13 +66,17 @@ theme:
     - navigation.sections
     - navigation.path
     - navigation.expand
-    - navigation.tracking   
+    - navigation.tracking
+    - navigation.indexes   
     - toc.follow    
     - content.code.copy
     - content.code.select
     - content.code.annotate
     - search.suggest
     - search.highlight
+    - content.code.annotate
+    - content.tooltips
+   
 
 
 extra_css:
@@ -80,37 +95,44 @@ nav:
   - Development: 
     - Installation: software/python.md
   - Blog:
-     - blog/index.md
-     - blog/authors.md
+    - blog/index.md
+    
+     
     
 
 
 # 扩展
 markdown_extensions:
   - admonition
-  - pymdownx.details
-  - pymdownx.superfences
-  - abbr
-  - pymdownx.snippets
-  - def_list
+  - def_list  
+  - md_in_html 
+  - pymdownx.superfences        
+  - abbr 
+  - footnotes  
   - tables
   - pymdownx.tasklist:
-      custom_checkbox: true
-  - attr_list
-  - md_in_html
+      custom_checkbox: true 
   - meta
   - pymdownx.highlight:
       anchor_linenums: true
+      line_spans: __span
+      pygments_lang_class: true
+  - pymdownx.snippets 
   - pymdownx.inlinehilite
+  - pymdownx.critic
+  - pymdownx.keys
   - pymdownx.caret #下划线
   - pymdownx.mark #文本高亮
   - pymdownx.tilde #删除线
+  - pymdownx.details
+  - pymdownx.tabbed:
+      alternate_style: true
+  - attr_list
+  - pymdownx.emoji:
+      emoji_index: !!python/name:material.extensions.emoji.twemoji
+      emoji_generator: !!python/name:material.extensions.emoji.to_svg
 
 
 extra:
   generator: false
-  # social:
-  #   - icon: fontawesome/brands/github-alt
-  #     link: https://github.com/tiangolo/typer
-  #   - icon: fontawesome/brands/twitter
-  #     link: https://twitter.com/tiangolo
+
