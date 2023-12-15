@@ -93,7 +93,7 @@ nav:
   - Home: index.md
   - QuickStart: quick_start.md
   - Development: 
-    - Installation: software/python.md
+    - Docker: software/docker.md
   - Blog:
     - blog/index.md
     
