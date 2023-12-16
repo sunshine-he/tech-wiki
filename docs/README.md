@@ -29,5 +29,6 @@
 
 欢迎赞助我，谢谢！
 
-微信![wechat](img/wechat.jpg)   支付宝![alipay](img/alipay.jpg)
+
+![微信](img/wechat.jpg){width="150"}       ![支付宝](img/alipay.jpg){width="150"}
 
