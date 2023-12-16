@@ -30,5 +30,5 @@
 欢迎赞助我，谢谢！
 
 
-![微信](img/wechat.jpg){width="150"}       ![支付宝](img/alipay.jpg){width="150"}
+![微信](img/wechat.jpg)     ![支付宝](img/alipay.jpg)
 
